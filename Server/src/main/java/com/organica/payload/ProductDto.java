@@ -16,4 +16,5 @@ public class ProductDto {
     private Float Price;
     private Float Weight;
     private String img;
+    private String categorie;
 }

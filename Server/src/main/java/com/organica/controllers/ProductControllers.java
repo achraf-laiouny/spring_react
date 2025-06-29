@@ -1,9 +1,16 @@
 package com.organica.controllers;
 
+import com.organica.entities.Product;
 import com.organica.payload.ApiResponse;
+import com.organica.payload.CategorieDto;
+import com.organica.payload.PageDto;
 import com.organica.payload.ProductDto;
+import com.organica.services.CategorieService;
 import com.organica.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
@@ -20,7 +27,11 @@ public class ProductControllers {
 
     @Autowired
     private ProductService productService;
+    @Autowired
+    private CategorieService categorieService;
+
     //Create Product
+
     @PostMapping(value = "/add" )
     public ResponseEntity<ProductDto> CreateProduct(@RequestParam MultiValueMap<String, String> formData, @RequestParam("img") MultipartFile file) throws IOException {
         ProductDto productDto = new ProductDto();
@@ -46,17 +57,27 @@ public class ProductControllers {
 
     //Get All Product
     @GetMapping("/")
-    public ResponseEntity<List<ProductDto>> getAll(){
-        List<ProductDto> products = this.productService.ReadAllProduct();
+    public ResponseEntity<PageDto> getAll(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "5") int size){
+        PageDto pageDto = this.productService.ReadAllProduct(PageRequest.of(page, size));
 
-        return new ResponseEntity<>(products,HttpStatusCode.valueOf(200));
+        return new ResponseEntity<>(pageDto,HttpStatusCode.valueOf(200));
+
     }
 
-//    @GetMapping("/{categorie}")
-//    public ResponseEntity<List<ProductDto>> getProductsByCategorie(@PathVariable String categorieName){
-//        List<ProductDto> products = this.productService.ReadProductByCategorie(categorieName);
-//        return new ResponseEntity<>(products,HttpStatusCode.valueOf(200));
-//    }
+    @GetMapping("/categories")
+    public ResponseEntity<List<CategorieDto>> getAllCategories(){
+        List<CategorieDto> categories = this.categorieService.getAllCategories();
+
+        return new ResponseEntity<>(categories,HttpStatusCode.valueOf(200));
+    }
+
+    @GetMapping("/categorie/{categorie}")
+    public ResponseEntity<List<ProductDto>> getProductsByCategorie(@PathVariable String categorie){
+        List<ProductDto> products = this.productService.ReadProductByCategorie(categorie);
+        return new ResponseEntity<>(products,HttpStatusCode.valueOf(200));
+    }
 
     //Delete Product
     @DeleteMapping(value = "/del/{ProductId}",produces = "application/json")

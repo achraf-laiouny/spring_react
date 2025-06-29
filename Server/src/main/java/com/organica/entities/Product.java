@@ -23,8 +23,8 @@ public class Product {
     private Float Price;
     private Float Weight;
     private String img;
-//    @ManyToOne
-//    private Categorie categorie;
+    @ManyToOne
+    private Categorie categorie;
 
     @OneToMany(mappedBy = "products")
     private List<CartDetalis> list;

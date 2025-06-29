@@ -1,11 +1,15 @@
 package com.organica.services.impl;
 
 import com.organica.entities.Product;
+import com.organica.payload.PageDto;
 import com.organica.payload.ProductDto;
 import com.organica.repositories.ProductRepo;
 import com.organica.services.ProductService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayOutputStream;
@@ -51,24 +55,27 @@ public class ProductServiceImpl implements ProductService {
         return this.modelMapper.map(save,ProductDto.class);
     }
 
-//    @Override
-//    public List<ProductDto> ReadProductByCategorie(String categorieName) {
-//        List<Product> all = this.productRepo.findByCategorie(categorieName);
-//        List<ProductDto> collect = all.stream().map(dto -> new ProductDto(dto.getProductId(), dto.getProductName(), dto.getDescription(), dto.getPrice(), dto.getWeight(), dto.getImg())).collect(Collectors.toList());
-//
-//        return collect;
-//    }
+    @Override
+    public List<ProductDto> ReadProductByCategorie(String categorieName) {
+        List<Product> all = this.productRepo.findByCategorieName(categorieName);
+        List<ProductDto> collect = all.stream().map(dto -> new ProductDto(dto.getProductId(), dto.getProductName(), dto.getDescription(), dto.getPrice(), dto.getWeight(), dto.getImg(),categorieName)).collect(Collectors.toList());
+
+        return collect;
+    }
 
 
     //Read All
     @Override
-    public List<ProductDto> ReadAllProduct() {
-        List<Product> all = this.productRepo.findAll();
-
-
-        List<ProductDto> collect = all.stream().map(dto -> new ProductDto(dto.getProductId(), dto.getProductName(), dto.getDescription(), dto.getPrice(), dto.getWeight(), dto.getImg())).collect(Collectors.toList());
-
-        return collect;
+    public PageDto ReadAllProduct(PageRequest pageableRequest) {
+        Page<Product> page = this.productRepo.findAll(pageableRequest);
+        PageDto pageDto = new PageDto();
+        List<ProductDto> collect = page.stream().map(dto -> new ProductDto(dto.getProductId(), dto.getProductName(), dto.getDescription(), dto.getPrice(), dto.getWeight(), dto.getImg(),null)).collect(Collectors.toList());
+        pageDto.setListProduct(collect);
+        pageDto.setSize(page.getSize());
+        pageDto.setTotalPages(page.getTotalPages());
+        pageDto.setTotalElements(page.getTotalElements());
+        pageDto.setNumber(page.getNumber());
+        return pageDto;
     }
 
     //Delete

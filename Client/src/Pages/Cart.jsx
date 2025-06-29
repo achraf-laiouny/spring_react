@@ -174,7 +174,7 @@ export const Cart = () => {
                       </li>
                       <li className="d-flex justify-content-between py-3 border-bottom">
                         <strong className="text-muted">Total</strong>
-                        <h3 className="font-weight-bold">MAD {totalAmount +100}</h3>
+                        <h3 className="font-weight-bold">MAD {totalAmount+35}</h3>
                       </li>
                     </ul>
                     <button
