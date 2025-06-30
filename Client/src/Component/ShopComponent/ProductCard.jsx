@@ -67,7 +67,7 @@ export const ProductCard = (props) => {
             <div className="btn-wrapper">
               <button className="product-btn" aria-label="Add to Whishlist">
                 <ion-icon name="heart-outline" />
-                <div className="tooltip">Add to Whishlist</div>
+                <div className="tooltip">Ajouter à la liste de souhaits</div>
               </button>
               <button
                 className="product-btn"
@@ -75,7 +75,7 @@ export const ProductCard = (props) => {
                 aria-label="Quick View"
               >
                 <ion-icon name="eye-outline" />
-                <div className="tooltip">Quick View</div>
+                <div className="tooltip">Aperçu rapide</div>
               </button>
             </div>
           </figure>
@@ -90,13 +90,13 @@ export const ProductCard = (props) => {
             <a href="/product/1">{props.name}</a>
           </h3>
           <div className="price-wrapper">
-            <del className="del">Rs {props.price+100}</del>
+            <del className="del">Mad {props.price+100}</del>
             <data className="price" value={85.0}>
-              Rs {props.price}
+              Mad {props.price}
             </data>
           </div>
           <button className="btn btn-primary" onClick={() => handalCart()}>
-            Add to Cart
+            Ajouter au Panier
           </button>
         </div>
       </li>

@@ -6,16 +6,16 @@ export const Hero = () => {
      <section className="hero">
         <div className="container">
           <div className="hero-content">
-            <p className="hero-subtitle">25% off all products.</p>
+            <p className="hero-subtitle">25% de réduction sur tous les produits.</p>
             <h2 className="h1 hero-title">
-              Qualityful <span className="span">organic</span>
+              Du Bio <span className="span">De Qualité</span>
               fruit &amp; <span className="span">vegetables.</span>
             </h2>
             <p className="hero-text">
-              It has survived not only five centuries also there leaped.
+              Il a non seulement survécu à cinq siècles, mais il a également fait des bonds.
             </p>
             <a href="/shop" className="btn btn-primary">
-              <span className="span">Shop Now</span>
+              <span className="span">Achetez</span>
               <ion-icon name="chevron-forward" aria-hidden="true" />
             </a>
           </div>

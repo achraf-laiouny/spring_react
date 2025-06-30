@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
@@ -143,16 +144,32 @@ public class CartServiceImpl implements CartService {
         System.out.println(cart.getTotalAmount());
         Cart save = this.cartRepo.save(cart);
 
-        CartDto map = this.modelMapper.map(save, CartDto.class);
-        List<CartDetailDto> cartDetalis1 = map.getCartDetalis();
+        UserDto userDto = new UserDto();
+        userDto.setUserid(user.getUserid());
+        userDto.setName(user.getName());
+        userDto.setDate(user.getDate());
+        userDto.setEmail(user.getEmail());
+        userDto.setRole(user.getRole().stream().findFirst().get().getRole());
 
 
-        for (CartDetailDto i:cartDetalis1 ) {
-            ProductDto p=i.getProducts();
-            p.setImg(p.getImg());
+        // img decompressBytes
+        CartDto cartDto = new CartDto();
+        cartDto.setId(cart.getId());
+        cartDto.setUser(userDto);
+        cartDto.setTotalAmount(cart.getTotalAmount());
+        List<CartDetailDto> cartDetalisDto = new ArrayList<>();
+        for (CartDetalis c:cart.getCartDetalis()){
+            CartDetailDto cartDetailDto = new CartDetailDto();
+            cartDetailDto.setCartDetalisId(c.getCartDetalisId());
+            cartDetailDto.setAmount(c.getAmount());
+            cartDetailDto.setQuantity(c.getQuantity());
+            ProductDto productDto = new ProductDto(c.getProducts().getProductId(),c.getProducts().getProductName(),c.getProducts().getDescription(),c.getProducts().getPrice(),c.getProducts().getWeight(),c.getProducts().getImg(),c.getProducts().getCategorie().getName());
+            cartDetailDto.setProducts(productDto);
+            cartDetalisDto.add(cartDetailDto);
         }
-        map.setCartDetalis(cartDetalis1);
-        return map;
+
+        cartDto.setCartDetalis(cartDetalisDto);
+        return cartDto;
     }
 
     @Override
@@ -160,19 +177,32 @@ public class CartServiceImpl implements CartService {
         User user = this.userRepo.findByEmail(userEmail);
         Cart byUser = this.cartRepo.findByUser(user);
 
+        UserDto userDto = new UserDto();
+        userDto.setUserid(user.getUserid());
+        userDto.setName(user.getName());
+        userDto.setDate(user.getDate());
+        userDto.setEmail(user.getEmail());
+        userDto.setRole(user.getRole().stream().findFirst().get().getRole());
 
 
     // img decompressBytes
-        CartDto map = this.modelMapper.map(byUser, CartDto.class);
-        List<CartDetailDto> cartDetalis1 = map.getCartDetalis();
-
-
-        for (CartDetailDto i:cartDetalis1 ) {
-            ProductDto p=i.getProducts();
-            p.setImg(p.getImg());
+        CartDto cartDto = new CartDto();
+        cartDto.setId(byUser.getId());
+        cartDto.setUser(userDto);
+        cartDto.setTotalAmount(byUser.getTotalAmount());
+        List<CartDetailDto> cartDetalis = new ArrayList<>();
+        for (CartDetalis c:byUser.getCartDetalis()){
+            CartDetailDto cartDetailDto = new CartDetailDto();
+            cartDetailDto.setCartDetalisId(c.getCartDetalisId());
+            cartDetailDto.setAmount(c.getAmount());
+            cartDetailDto.setQuantity(c.getQuantity());
+            ProductDto productDto = new ProductDto(c.getProducts().getProductId(),c.getProducts().getProductName(),c.getProducts().getDescription(),c.getProducts().getPrice(),c.getProducts().getWeight(),c.getProducts().getImg(),c.getProducts().getCategorie().getName());
+            cartDetailDto.setProducts(productDto);
+            cartDetalis.add(cartDetailDto);
         }
-        map.setCartDetalis(cartDetalis1);
-        return map;
+
+        cartDto.setCartDetalis(cartDetalis);
+        return cartDto;
     }
 
     @Override

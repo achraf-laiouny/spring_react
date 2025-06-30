@@ -48,11 +48,10 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductDto ReadProduct(Integer ProductId) {
 
-        Product save = this.productRepo.findById(ProductId).orElseThrow();
-        save.setImg(save.getImg());
+        Product product = this.productRepo.findById(ProductId).orElseThrow();
+        ProductDto productDto = new ProductDto(product.getProductId(),product.getProductName(),product.getDescription(),product.getPrice(),product.getWeight(),product.getImg(),product.getCategorie().getName());
+        return productDto;
 
-
-        return this.modelMapper.map(save,ProductDto.class);
     }
 
     @Override

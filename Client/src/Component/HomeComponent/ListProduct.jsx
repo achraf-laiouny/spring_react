@@ -66,8 +66,8 @@ export const ListProduct = () => {
     <>
       <section id="products" className="section product">
         <div className="container">
-          <p className="section-subtitle"> -- Organic Products --</p>
-          <h2 className="h2 section-title">All Organic Products</h2>
+          <p className="section-subtitle"> -- Produits Organic --</p>
+          <h2 className="h2 section-title">Tous Produits Organic</h2>
           <ul className="filter-list">
             <li key="All">
               <button className="filter-btn " onClick={()=>handleFilter("All")}>
@@ -123,7 +123,7 @@ export const ListProduct = () => {
                />
             ))
         ) : (
-            <p>No products available.</p>
+            <p>Aucun produit disponible.</p>
           )}
           </ul>
         </div>

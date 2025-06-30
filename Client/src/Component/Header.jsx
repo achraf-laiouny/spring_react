@@ -84,7 +84,7 @@ export const Header = () => {
             <ul className="navbar-list">
               <li>
                 <a href="/" className="navbar-link">
-                  Home
+                  Acceuil
                 </a>
               </li>
               <li>
@@ -96,7 +96,7 @@ export const Header = () => {
                   to="contact"
                   offset={-30}
                 >
-                  About
+                  A Propos
                 </Link>
               </li>
               <li>
@@ -107,30 +107,7 @@ export const Header = () => {
                   Shop
                 </a>
               </li>
-              <li>
-                <Link
-                  activeClass="active"
-                  className="navbar-link"
-                  smooth="linear"
-                  spy
-                  to="blog"
-                  offset={-30}
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  activeClass="active"
-                  className="navbar-link"
-                  smooth="linear"
-                  spy
-                  to="products"
-                  offset={-30}
-                >
-                  Products
-                </Link>
-              </li>
+              
               <li>
                 <Link
                   activeClass="active"
@@ -140,7 +117,7 @@ export const Header = () => {
                   to="contact"
                   offset={-30}
                 >
-                  Contact
+                  Contactez Nous
                 </Link>
               </li>
             </ul>

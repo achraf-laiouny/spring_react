@@ -11,24 +11,15 @@ export const Footer = () => {
             Organ<span className="span">ica</span>
           </a>
           <p className="footer-text">
-            It was popularised in the 1960s with the release of Letraset sheets
-            containing Lorem passages and more recently with desktop publishing
-            software like including.
+            Il a été popularisé dans les années 1960 
+            avec la sortie de feuilles Letraset contenant 
+            des passages du Lorem et plus récemment avec 
+            des logiciels de PAO comme including.
           </p>
           <ul className="social-list">
             <li>
               <a href="#" className="social-link">
                 <ion-icon name="logo-facebook" />
-              </a>
-            </li>
-            <li>
-              <a href="#" className="social-link">
-                <ion-icon name="logo-twitter" />
-              </a>
-            </li>
-            <li>
-              <a href="#" className="social-link">
-                <ion-icon name="logo-skype" />
               </a>
             </li>
             <li>
@@ -40,11 +31,11 @@ export const Footer = () => {
         </div>
         <ul className="footer-list">
           <li>
-            <p className="footer-list-title">Company</p>
+            <p className="footer-list-title">Menu</p>
           </li>
           <li>
             <a href="/about" className="footer-link">
-              About Us
+              A Propos
             </a>
           </li>
           <li>
@@ -53,18 +44,13 @@ export const Footer = () => {
             </a>
           </li>
           <li>
-            <a href="/blog" className="footer-link">
-              Blog
-            </a>
-          </li>
-          <li>
             <a href="/shop" className="footer-link">
-              Product
+              Produit
             </a>
           </li>
           <li>
             <a href="/contact" className="footer-link">
-              Contact Us
+              Contactez Nous
             </a>
           </li>
         </ul>
@@ -77,7 +63,7 @@ export const Footer = () => {
               <ion-icon name="location-outline" />
             </div>
             <address className="contact-link">
-              7 Green Lake Street Crawfordsville, IN 47933
+              Fez, Morocco
             </address>
           </li>
           <li className="footer-item">
@@ -85,7 +71,7 @@ export const Footer = () => {
               <ion-icon name="call-outline" />
             </div>
             <a href="tel:+1800123456789" className="contact-link">
-              +1 800 123 456 789
+              +212 6 123 456 789
             </a>
           </li>
           <li className="footer-item">
@@ -94,19 +80,20 @@ export const Footer = () => {
             </div>
             <a href="mailto:organica@help.com" className="contact-link">
               organica@help.com
+
             </a>
           </li>
         </ul>
         <div className="footer-list">
           <p className="footer-list-title">Newsletter</p>
           <p className="newsletter-text">
-            You will be notified when somthing new will be appear.
+            Vous serez averti lorsque quelque chose de nouveau apparaîtra.
           </p>
           <form action="" className="footer-form">
             <input
               type="email"
               name="email"
-              placeholder="Email Address *"
+              placeholder="Adresse Mail *"
               required=""
               className="footer-input"
             />
@@ -124,21 +111,21 @@ export const Footer = () => {
     <div className="footer-bottom">
       <div className="container">
         <p className="copyright">
-          © 2022{" "}
+          © 2025{" "}
           <a href="#" className="copyright-link">
-            vivekkakadiya
+            ENSA FES
           </a>
-          . All Rights Reserved.
+          . Tout Droit Reservé.
         </p>
         <ul className="footer-bottom-list">
           <li>
             <a href="#" className="footer-bottom-link">
-              Term and Service
+              Terme & Service
             </a>
           </li>
           <li>
             <a href="#" className="footer-bottom-link">
-              Privacy Policy
+              Politique de Confidentialité
             </a>
           </li>
         </ul>
