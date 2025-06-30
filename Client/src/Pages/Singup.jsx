@@ -50,19 +50,19 @@ export const Singup = () => {
       });
       const data = await res.json();
       if (res.status === 200) {
-        onToast("Sign up Successfull!!")
+        onToast("Sign up avec success!!")
         setTimeout(() => {
           window.location.href = "/login";
         }, 2000);
       } else {
        
-          onToast("Something went wrong!!")
+          onToast("Il y a un problem!!!")
       
           
       }
       console.log(data);
     }else{
-      onToast("Password not match!!")
+      onToast("Mot de passe incorrect")
     }
         
   };
@@ -81,55 +81,14 @@ export const Singup = () => {
               fontSize: 27,
             }}
           >
-            Create an Account
+            Creer un compte
           </h4>
         </div>
-        <div className="login-box-content">
-          <div className="fb-login box-shadow">
-            <a
-              className="d-flex flex-row align-items-center social-login-link"
-              href="#"
-            >
-              <i
-                className="fa fa-facebook"
-                style={{
-                  marginLeft: 0,
-                  paddingRight: 20,
-                  paddingLeft: 22,
-                  width: 56,
-                }}
-              />
-              Login with Facebook
-            </a>
-          </div>
-          <div className="gp-login box-shadow">
-            <a
-              className="d-flex flex-row align-items-center social-login-link"
-              style={{ marginBottom: 10 }}
-              href="#"
-            >
-              <i
-                className="fa fa-google"
-                style={{ color: "rgb(255,255,255)", width: 56 }}
-              />
-              Login with Google+
-            </a>
-          </div>
-        </div>
+        
         <div className="d-flex flex-row align-items-center login-box-seperator-container">
           <div className="login-box-seperator" />
           <div className="login-box-seperator-text">
-            <p
-              style={{
-                marginBottom: 0,
-                paddingLeft: 10,
-                paddingRight: 10,
-                fontWeight: 400,
-                color: "rgb(201,201,201)",
-              }}
-            >
-              or
-            </p>
+           
           </div>
           <div className="login-box-seperator" />
         </div>
@@ -139,7 +98,7 @@ export const Singup = () => {
             className="email-imput form-control"
             style={{ marginTop: 10 }}
             required=""
-            placeholder="Name"
+            placeholder="Nom"
             name="name"
             onChange={(e) => setUser({ ...user, name: e.target.value })}
             value={user.name}
@@ -157,7 +116,7 @@ export const Singup = () => {
             minLength={6}
           />
           <input
-            type="password"
+            type="Mot de passe"
             className="password-input form-control"
             style={{ marginTop: 10 }}
             required=""
@@ -172,7 +131,7 @@ export const Singup = () => {
             className="password-input form-control"
             style={{ marginTop: 10 }}
             required=""
-            placeholder="Confirm Password"
+            placeholder="Confirmer mot de passe"
             onChange={(e) =>setUser({ ...user, confirmPassword: e.target.value })}
             value={user.confirmPassword}
             name="confirmPassword"
@@ -196,7 +155,7 @@ export const Singup = () => {
              
             </div>
             <a id="forgot-password-link" href="#">
-              Forgot Password?
+              Mot de passe oublie?
             </a>
           </div>
         </div>
@@ -205,7 +164,7 @@ export const Singup = () => {
           style={{ padding: "10px 20px", paddingBottom: 23, paddingTop: 5 }}
         >
           <p style={{ marginBottom: 0 }}>
-            Alredy have an account?
+            Déja un compte?
             <a id="register-link" href="/login">
               Sign In!
             </a>

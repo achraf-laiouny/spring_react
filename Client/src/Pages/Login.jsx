@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 export const Login = () => {
   const navigate = useNavigate();
   const onToast = (s) => {
-    if ('Login Successfull!!' === s) {
+    if ('Login Success!!' === s) {
       toast.success(s, {
         position: "top-center",
         autoClose: 5000,
@@ -54,7 +54,7 @@ export const Login = () => {
     const data = await res.json();
     sessionStorage.setItem("token", data.jwt);
     if(res.status===200){
-      onToast('Login Successfull!!');
+      onToast('Login Success!!');
       window.location.href = "/";
     }else{
       onToast("Invalid Credentials");
@@ -80,52 +80,11 @@ export const Login = () => {
       Login
     </h4>
   </div>
-  <div className="login-box-content">
-    <div className="fb-login box-shadow">
-      <a
-        className="d-flex flex-row align-items-center social-login-link"
-        href="#"
-      >
-        <i
-          className="fa fa-facebook"
-          style={{
-            marginLeft: 0,
-            paddingRight: 20,
-            paddingLeft: 22,
-            width: 56
-          }}
-        />
-        Login with Facebook
-      </a>
-    </div>
-    <div className="gp-login box-shadow">
-      <a
-        className="d-flex flex-row align-items-center social-login-link"
-        style={{ marginBottom: 10 }}
-        href="#"
-      >
-        <i
-          className="fa fa-google"
-          style={{ color: "rgb(255,255,255)", width: 56 }}
-        />
-        Login with Google+
-      </a>
-    </div>
-  </div>
+ 
   <div className="d-flex flex-row align-items-center login-box-seperator-container">
     <div className="login-box-seperator" />
     <div className="login-box-seperator-text">
-      <p
-        style={{
-          marginBottom: 0,
-          paddingLeft: 10,
-          paddingRight: 10,
-          fontWeight: 400,
-          color: "rgb(201,201,201)"
-        }}
-      >
-        or
-      </p>
+      
     </div>
     <div className="login-box-seperator" />
   </div>
@@ -146,7 +105,7 @@ export const Login = () => {
       className="password-input form-control"
       style={{ marginTop: 10 }}
       required=""
-      placeholder="Password"
+      placeholder="Mot de passe"
       name="password"
             onChange={(e) => setUser({ ...user, password: e.target.value })}
             value={user.password}
@@ -168,7 +127,7 @@ export const Login = () => {
        
       </div>
       <a id="forgot-password-link" href="#">
-        Forgot Password?
+        mot de passe oublié?
       </a>
     </div>
   </div>
@@ -177,7 +136,7 @@ export const Login = () => {
     style={{ padding: "10px 20px", paddingBottom: 23, paddingTop: 18 }}
   >
     <p style={{ marginBottom: 0 }}>
-      Don't you have an account?
+      Pas de compte?
       <a id="register-link" href="singup">
         Sign Up!
       </a>

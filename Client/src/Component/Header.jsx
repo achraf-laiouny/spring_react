@@ -63,7 +63,7 @@ export const Header = () => {
         <div className="container">
           <h1 className="h1">
             <a href="/" className="logo">
-              Organ<span className="span">ica</span>
+              Plant<span className="span">ara</span>
             </a>
           </h1>
           <button

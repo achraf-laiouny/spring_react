@@ -8,7 +8,7 @@ export const Footer = () => {
       <div className="container">
         <div className="footer-brand">
           <a href="/" className="logo">
-            Organ<span className="span">ica</span>
+            Plant<span className="span">ara</span>
           </a>
           <p className="footer-text">
             Il a été popularisé dans les années 1960 
@@ -78,8 +78,8 @@ export const Footer = () => {
             <div className="contact-icon">
               <ion-icon name="mail-outline" />
             </div>
-            <a href="mailto:organica@help.com" className="contact-link">
-              organica@help.com
+            <a href="mailto:plantara@help.com" className="contact-link">
+              plantara@help.com
 
             </a>
           </li>

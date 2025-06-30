@@ -103,9 +103,7 @@ export const Items = ({ prop ,setLoading}) => {
                   {item2.productName}
                 </a>
               </h5>
-              <span className="text-muted font-weight-normal font-italic d-block">
-                Category: Watches
-              </span>
+              
             </div>
           </div>
         </th>
